@@ -55,3 +55,98 @@ const posts = [
         "created": "2021-03-05"
     }
 ];
+
+for (let i in posts){
+    const postsList = document.querySelector('.posts-list');
+
+    let post=document.createElement('div');
+    post.className=('post');
+
+    let postHeader=document.createElement('div');
+    postHeader.className=('post__header');
+
+    let postMeta=document.createElement('div');
+    postMeta.className=('post-meta');
+
+    let postMetaIcon=document.createElement('div');
+    postMetaIcon.className=('post-meta__icon');
+    postMetaIcon.innerHTML = ` <img class="profile-pic" src=${posts[i].author.image} alt="Phil Mangione"> `;
+
+
+    let postMetaData=document.createElement('div');
+    postMetaData.className=('post-meta__data');
+
+    let postMetaAuthor=document.createElement('div');
+    postMetaAuthor.className=('post-meta__author');
+    postMetaAuthor.innerHTML=`${posts[i].author.name}`;
+
+    let postMetaTime=document.createElement('div');
+    postMetaTime.className=('post-meta__time');
+    postMetaTime.innerHTML=`${posts[i].created}`;
+
+    let postText=document.createElement('div');
+    postText.className=('post__text');
+    postText.innerHTML=`${posts[i].content}`;
+
+    let postImage=document.createElement('div');
+    postImage.className=('post__image');
+    postImage.innerHTML=` <img src=${posts[i].media} alt="">`;
+
+    let postFooter=document.createElement('div');
+    postFooter.className=('post__footer');
+
+    let likesJsLikes=document.createElement('div');
+    likesJsLikes.className=('likes');
+    likesJsLikes.classList.add('js-likes');
+
+    let likesCta=document.createElement('div');
+    likesCta.className=('likes__cta');
+    likesCta.innerHTML=` <a class="like-button  js-like-button" href="#" data-postid="1">
+    <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+    <span class="like-button__label">Mi Piace</span>
+    </a>`;
+
+    let likesCounter=document.createElement('div');
+    likesCounter.className=('likes__counter');
+    likesCounter.innerHTML=`  Piace a <b id="like-counter-1" class="js-likes-counter">80</b> persone`;
+
+
+    postMetaData.append(postMetaAuthor);
+    postMetaData.append(postMetaTime);
+
+    postMeta.append(postMetaIcon);
+    postMeta.append(postMetaData);
+
+    postHeader.append(postMeta);
+
+    post.append(postHeader);
+    post.append(postText);
+    post.append(postImage);
+    post.append(postFooter);
+
+    postFooter.append(likesJsLikes);
+
+    likesJsLikes.append(likesCta);
+    likesJsLikes.append(likesCounter);
+
+
+    postsList.append(post);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
